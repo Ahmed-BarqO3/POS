@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using POS.Application.Common;
 using POS.Infastructure;
+using POW.Winfom.Forms.Products;
 
 namespace POW.Winfom;
 
@@ -21,15 +22,25 @@ internal static class Program
         
 
         using ServiceProvider serviceProvider = services.BuildServiceProvider();
-        var mainWindow = serviceProvider.GetRequiredService<frmSales>();
+        var MainForm = serviceProvider.GetRequiredService<frmAddProduct>();
 
-        Application.Run(mainWindow);
+        Application.Run(MainForm);
     }
 
     private static void ConfigureService(ServiceCollection services)
     {
+
+
         services.AddInfrastructure();
         services.AddApplication();
-        services.AddTransient<frmSales>();
+        var assembly = typeof(frmMain).Assembly;
+
+        services.Scan(s =>
+        {
+            s.FromAssemblies(assembly)
+             .AddClasses(c => c.AssignableTo<Form>()) // Register all classes that inherit from Form
+             .AsSelf()
+             .WithTransientLifetime();
+        });
     }
 }

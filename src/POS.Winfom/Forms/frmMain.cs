@@ -5,19 +5,17 @@ using POS.Application.Roles;
 
 namespace POW.Winfom;
 
-public partial class frmSales : Form
+public partial class frmMain : Form
 {
     readonly IMediator _mediator;
-    public frmSales(IMediator mediator)
+    public frmMain(IMediator mediator)
     {
         InitializeComponent();
         _mediator = mediator;
     }
 
-    private async void Form1_Load(object sender, EventArgs e)
+    private void btnCloes_Click(object sender, EventArgs e)
     {
-        var r = await _mediator.Send(new GetPayment(1));
-        MessageBox.Show(r.Name);
-       
+        Application.Exit();
     }
 }
