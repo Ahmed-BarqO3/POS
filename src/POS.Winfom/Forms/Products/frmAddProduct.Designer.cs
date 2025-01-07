@@ -28,6 +28,7 @@ partial class frmAddProduct
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -43,6 +44,8 @@ partial class frmAddProduct
         txtPrice = new Guna.UI2.WinForms.Guna2TextBox();
         txtProductNumber = new Guna.UI2.WinForms.Guna2TextBox();
         btnSave = new Guna.UI2.WinForms.Guna2Button();
+        errorProvider1 = new ErrorProvider(components);
+        ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
         SuspendLayout();
         // 
         // txtName
@@ -69,6 +72,8 @@ partial class frmAddProduct
         txtName.ShadowDecoration.CustomizableEdges = customizableEdges2;
         txtName.Size = new Size(314, 37);
         txtName.TabIndex = 0;
+        txtName.KeyPress += txtName_KeyPress;
+        txtName.Validating += txtName_Validating;
         // 
         // guna2HtmlLabel1
         // 
@@ -148,6 +153,8 @@ partial class frmAddProduct
         txtProductNumber.ShadowDecoration.CustomizableEdges = customizableEdges6;
         txtProductNumber.Size = new Size(222, 37);
         txtProductNumber.TabIndex = 7;
+        txtProductNumber.KeyPress += txtProductNumber_KeyPress;
+        txtProductNumber.Validating += txtProductNumber_Validating;
         // 
         // btnSave
         // 
@@ -166,6 +173,11 @@ partial class frmAddProduct
         btnSave.Size = new Size(251, 41);
         btnSave.TabIndex = 8;
         btnSave.Text = "حفظ";
+        btnSave.Click += btnSave_Click;
+        // 
+        // errorProvider1
+        // 
+        errorProvider1.ContainerControl = this;
         // 
         // frmAddProduct
         // 
@@ -183,6 +195,8 @@ partial class frmAddProduct
         Name = "frmAddProduct";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "اضافة صنف";
+        Load += frmAddProduct_Load;
+        ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -196,4 +210,5 @@ partial class frmAddProduct
     private Guna.UI2.WinForms.Guna2TextBox txtPrice;
     private Guna.UI2.WinForms.Guna2TextBox txtProductNumber;
     private Guna.UI2.WinForms.Guna2Button btnSave;
+    private ErrorProvider errorProvider1;
 }

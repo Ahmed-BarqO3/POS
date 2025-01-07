@@ -22,7 +22,7 @@ internal static class Program
         
 
         using ServiceProvider serviceProvider = services.BuildServiceProvider();
-        var MainForm = serviceProvider.GetRequiredService<frmAddProduct>();
+        var MainForm = serviceProvider.GetRequiredService<frmShowProduct>();
 
         Application.Run(MainForm);
     }

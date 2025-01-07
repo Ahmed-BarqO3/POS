@@ -38,11 +38,11 @@ partial class frmShowProduct
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         dgvProducts = new Guna.UI2.WinForms.Guna2DataGridView();
-        txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-        cmbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
-        guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
         cmsProduct = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
         تعديلToolStripMenuItem = new ToolStripMenuItem();
+        txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+        cmbFilter = new Guna.UI2.WinForms.Guna2ComboBox();
+        btnAdd = new Guna.UI2.WinForms.Guna2Button();
         ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
         cmsProduct.SuspendLayout();
         SuspendLayout();
@@ -76,8 +76,7 @@ partial class frmShowProduct
         dgvProducts.Location = new Point(12, 199);
         dgvProducts.Name = "dgvProducts";
         dgvProducts.ReadOnly = true;
-        dgvProducts.RowHeadersVisible = false;
-        dgvProducts.RowHeadersWidth = 51;
+        dgvProducts.RowHeadersWidth = 80;
         dgvProducts.Size = new Size(1238, 462);
         dgvProducts.TabIndex = 1;
         dgvProducts.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
@@ -102,67 +101,6 @@ partial class frmShowProduct
         dgvProducts.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
         dgvProducts.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
         // 
-        // txtSearch
-        // 
-        txtSearch.CustomizableEdges = customizableEdges1;
-        txtSearch.DefaultText = "";
-        txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-        txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-        txtSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-        txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-        txtSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtSearch.Font = new Font("Segoe UI", 9F);
-        txtSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-        txtSearch.Location = new Point(167, 158);
-        txtSearch.Margin = new Padding(3, 4, 3, 4);
-        txtSearch.Name = "txtSearch";
-        txtSearch.PasswordChar = '\0';
-        txtSearch.PlaceholderText = "اكتب هنا للبحث";
-        txtSearch.RightToLeft = RightToLeft.No;
-        txtSearch.SelectedText = "";
-        txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
-        txtSearch.Size = new Size(879, 36);
-        txtSearch.TabIndex = 1;
-        txtSearch.TextAlign = HorizontalAlignment.Center;
-        // 
-        // cmbFilter
-        // 
-        cmbFilter.BackColor = Color.Transparent;
-        cmbFilter.CustomizableEdges = customizableEdges3;
-        cmbFilter.DrawMode = DrawMode.OwnerDrawFixed;
-        cmbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
-        cmbFilter.FocusedColor = Color.FromArgb(94, 148, 255);
-        cmbFilter.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-        cmbFilter.Font = new Font("Segoe UI", 10F);
-        cmbFilter.ForeColor = Color.FromArgb(68, 88, 112);
-        cmbFilter.ItemHeight = 30;
-        cmbFilter.Items.AddRange(new object[] { "كود الصنف", "اسم الصنف" });
-        cmbFilter.Location = new Point(12, 158);
-        cmbFilter.Name = "cmbFilter";
-        cmbFilter.RightToLeft = RightToLeft.Yes;
-        cmbFilter.ShadowDecoration.CustomizableEdges = customizableEdges4;
-        cmbFilter.Size = new Size(149, 36);
-        cmbFilter.StartIndex = 1;
-        cmbFilter.TabIndex = 0;
-        // 
-        // guna2Button1
-        // 
-        guna2Button1.Cursor = Cursors.Hand;
-        guna2Button1.CustomizableEdges = customizableEdges5;
-        guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-        guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-        guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-        guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-        guna2Button1.FillColor = Color.LimeGreen;
-        guna2Button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-        guna2Button1.ForeColor = Color.White;
-        guna2Button1.Location = new Point(1052, 158);
-        guna2Button1.Name = "guna2Button1";
-        guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-        guna2Button1.Size = new Size(198, 36);
-        guna2Button1.TabIndex = 3;
-        guna2Button1.Text = "إضافة صنف";
-        // 
         // cmsProduct
         // 
         cmsProduct.ImageScalingSize = new Size(20, 20);
@@ -184,13 +122,81 @@ partial class frmShowProduct
         تعديلToolStripMenuItem.Name = "تعديلToolStripMenuItem";
         تعديلToolStripMenuItem.Size = new Size(115, 24);
         تعديلToolStripMenuItem.Text = "تعديل";
+        تعديلToolStripMenuItem.Click += تعديلToolStripMenuItem_Click;
+        // 
+        // txtSearch
+        // 
+        txtSearch.BorderColor = Color.FromArgb(0, 192, 192);
+        txtSearch.CustomizableEdges = customizableEdges1;
+        txtSearch.DefaultText = "";
+        txtSearch.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+        txtSearch.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+        txtSearch.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+        txtSearch.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+        txtSearch.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+        txtSearch.Font = new Font("Segoe UI", 9F);
+        txtSearch.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+        txtSearch.Location = new Point(167, 158);
+        txtSearch.Margin = new Padding(3, 4, 3, 4);
+        txtSearch.Name = "txtSearch";
+        txtSearch.PasswordChar = '\0';
+        txtSearch.PlaceholderText = "اكتب هنا للبحث";
+        txtSearch.RightToLeft = RightToLeft.No;
+        txtSearch.SelectedText = "";
+        txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges2;
+        txtSearch.Size = new Size(879, 36);
+        txtSearch.TabIndex = 1;
+        txtSearch.TextAlign = HorizontalAlignment.Center;
+        txtSearch.TextChanged += txtSearch_TextChanged;
+        // 
+        // cmbFilter
+        // 
+        cmbFilter.BackColor = Color.Transparent;
+        cmbFilter.CustomizableEdges = customizableEdges3;
+        cmbFilter.DrawMode = DrawMode.OwnerDrawFixed;
+        cmbFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+        cmbFilter.FocusedColor = Color.FromArgb(94, 148, 255);
+        cmbFilter.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+        cmbFilter.Font = new Font("Segoe UI", 10F);
+        cmbFilter.ForeColor = Color.FromArgb(68, 88, 112);
+        cmbFilter.HoverState.FillColor = SystemColors.Highlight;
+        cmbFilter.ItemHeight = 30;
+        cmbFilter.Items.AddRange(new object[] { "كود الصنف", "اسم الصنف" });
+        cmbFilter.Location = new Point(12, 158);
+        cmbFilter.Name = "cmbFilter";
+        cmbFilter.RightToLeft = RightToLeft.Yes;
+        cmbFilter.ShadowDecoration.CustomizableEdges = customizableEdges4;
+        cmbFilter.Size = new Size(149, 36);
+        cmbFilter.StartIndex = 1;
+        cmbFilter.TabIndex = 0;
+        // 
+        // btnAdd
+        // 
+        btnAdd.Cursor = Cursors.Hand;
+        btnAdd.CustomizableEdges = customizableEdges5;
+        btnAdd.DisabledState.BorderColor = Color.DarkGray;
+        btnAdd.DisabledState.CustomBorderColor = Color.DarkGray;
+        btnAdd.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+        btnAdd.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+        btnAdd.FillColor = Color.FromArgb(38, 151, 68);
+        btnAdd.FocusedColor = Color.FromArgb(63, 7, 63);
+        btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        btnAdd.ForeColor = Color.White;
+        btnAdd.HoverState.FillColor = Color.FromArgb(63, 7, 63);
+        btnAdd.Location = new Point(1052, 158);
+        btnAdd.Name = "btnAdd";
+        btnAdd.ShadowDecoration.CustomizableEdges = customizableEdges6;
+        btnAdd.Size = new Size(198, 36);
+        btnAdd.TabIndex = 3;
+        btnAdd.Text = "إضافة صنف";
+        btnAdd.Click += btnAdd_Click;
         // 
         // frmShowProduct
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1262, 673);
-        Controls.Add(guna2Button1);
+        Controls.Add(btnAdd);
         Controls.Add(cmbFilter);
         Controls.Add(txtSearch);
         Controls.Add(dgvProducts);
@@ -207,7 +213,7 @@ partial class frmShowProduct
     private Guna.UI2.WinForms.Guna2DataGridView dgvProducts;
     private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     private Guna.UI2.WinForms.Guna2ComboBox cmbFilter;
-    private Guna.UI2.WinForms.Guna2Button guna2Button1;
+    private Guna.UI2.WinForms.Guna2Button btnAdd;
     private Guna.UI2.WinForms.Guna2ContextMenuStrip cmsProduct;
     private ToolStripMenuItem تعديلToolStripMenuItem;
 }
